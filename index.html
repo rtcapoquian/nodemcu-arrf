@@ -360,22 +360,24 @@
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
-      // Initialize Leaflet map
-      const map = L.map("map").setView([14.5995, 120.9842], 13);
+      // Initialize Leaflet map centered on Mapúa University
+      const map = L.map("map").setView([14.59049165, 120.978075685554], 16); // Increased zoom level
+
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "© OpenStreetMap contributors",
       }).addTo(map);
-      L.marker([14.5995, 120.9842])
+
+      // Add Mapúa University marker
+      L.marker([14.59049165, 120.978075685554])
         .addTo(map)
-        .bindPopup("Dog Location<br>📍 Manila, PH")
+        .bindPopup("<b>Mapúa University</b><br>📍 Intramuros, Manila")
         .openPopup();
 
-      // Buzzer control functions
+      // Buzzer control functions (unchanged)
       async function toggleBuzzer(state) {
         const onBtn = document.getElementById("buzzerOn");
         const offBtn = document.getElementById("buzzerOff");
 
-        // Update button active states
         if (state) {
           onBtn.classList.add("active");
           offBtn.classList.remove("active");
